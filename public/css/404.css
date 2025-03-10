@@ -1,0 +1,54 @@
+.label-404-div {
+    background-color:#FFF6EB;
+    border: solid 2px #000000;
+    border-radius: 15px;
+    justify-content: center;
+
+    box-shadow: 1vh 1vh #D4A373, 1vh 1vh 0px 2px black;
+
+    /* margin-right: 2vh; */
+    margin:auto;
+    margin-top: 20%;
+
+    padding-top: 15%;
+    padding-bottom: 15%;
+
+    width: 90%;
+}
+
+.label-404 {
+    font-size: 10em;
+    font-weight: 900;
+}
+
+.bar-404 {
+    color: #D4A373;
+    font-size: 10em;
+    font-weight: 900;
+
+    padding-left: 0.1em;
+}
+
+.right-404-page{
+    margin:auto;
+    text-align: center;
+}
+
+
+.home-404-link{
+    text-decoration: underline;
+}
+
+.home-404-link:hover{
+    text-decoration: underline;
+    color: #D4A373;
+}
+
+.not-found-text{
+    font-size: 2.4em;
+    font-weight: 900;
+}
+
+.not-found-subtext{
+    font-size: 1.9em;
+}

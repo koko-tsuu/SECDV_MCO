@@ -1,0 +1,15 @@
+ <div class="row d-flex mt-2 justify-content-between">
+                    <div class="col-2">
+                        <img src="{{{username.profile_pic}}}" class="profile-pic">
+                    </div>
+                    <div class="col-10">
+                        <p class="side-post-title"><b><a href="/post/{{_id}}">{{post_title}}</a></b></p>
+                        {{#if post_date_modified.length}}
+                         <span class="side-post-info">posted by <a href="/user/{{username.username}}">{{username.username}}</a> on {{noTimeFormatDate post_date_modified}}</span>
+                        {{else}}
+                       <span class="side-post-info">posted by <a href="/user/{{username.username}}">{{username.username}}</a> on {{noTimeFormatDate post_date}}</span>
+                        {{/if}}
+                    </div>
+            </div>
+      
+<div class="side-line mt-3"></div>

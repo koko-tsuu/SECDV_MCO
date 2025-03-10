@@ -1,0 +1,66 @@
+<div class="viewed-post-container mb-4">
+    {{#if is_user_post}}
+        <a href="/post/edit-{{_id}}"><div class="post-creator-delete" id="edit-post-btn"><i class="fa-regular fa-pen-to-square"></i></div></a>
+    {{/if}}
+    
+    <h2>{{post_title}}</h2> 
+    
+    <div class="d-flex">
+        {{#if post_edited}}
+        <!-- Indicate if post is edited -->
+        <p class="post-creator-posted-by">posted by <a href="/user/{{post_username.username}}">{{post_username.username}}</a> on {{formatDate post_date}}</p>
+        <p class="edited-tag-post" id="edited-tag-post">(edited)</p>
+        {{else}}
+        <p class="post-creator-posted-by">posted by <a href="/user/{{post_username.username}}">{{post_username.username}}</a> on {{formatDate post_date}}</p>
+        {{/if}}
+    </div>
+
+    <p>
+        {{post_content}}
+        {{#if post_attachment.length}}
+        <div style="display: flex; justify-content: center;" class="mb-4">
+            <img src="{{post_attachment}}" class="viewed-post-img">
+        </div>
+        {{/if}}
+    </p>
+    <div class="container d-flex flex-wrap">
+            
+        {{#each tags_post}}
+            <a href="/tag/{{tag_name}}" class="postcom-tags post-tags-cont mt-2">#{{tag_name}}</a>
+        {{/each}}
+    </div>
+
+  
+    <div class="actions-cont viewed-post-actions mb-3 mt-3">
+        <div class="share-cont" id="share-btn" onclick="copyLink('https://discusso.onrender.com/post/{{id}}')">
+            <i class="fa-regular fa-share-from-square"></i>
+        </div>
+        <div class="votes-cont">
+            <form id = "upvoteForm" style="display:inline">
+                 <input type="hidden" value="upvoted" name="action" id="action">
+                <input type="hidden" value="{{id}}" name="post_id" id="post_id">
+            {{#if is_upvoted}}
+              <i class="fa-solid fa-circle-up" id="upvote-btn"></i>
+            {{else}}
+               <i class="fa-regular fa-circle-up" id="upvote-btn"></i>
+            {{/if}}
+            </form>
+            <span style="fontWeight:bold; font-size:smaller; margin-right: 0.5vh;" id="upvote-amnt"><b>{{upvote_count}}</b></span>
+            <span style="font-size:smaller; margin-right: 0.5vh;"><b>|</b></span>
+            <form id = "downvoteForm" style="display:inline">
+                 <input type="hidden" value="downvoted" name="action" id="action">
+                <input type="hidden" value="{{id}}" name="post_id" id="post_id">
+            {{#if is_downvoted}}
+                <i class="fa-solid fa-circle-down" id="downvote-btn"></i>
+            {{else}}
+               <i class="fa-regular fa-circle-down" id="downvote-btn"></i>
+            {{/if}}
+            </form>
+            <span style="fontWeight:bold; font-size:smaller" id="downvote-amnt"><b>{{downvote_count}}</b></span>
+        </div>
+        <div class="comments-cont">
+            <i class="fa-regular fa-comment-dots"></i>
+            <span style="font-size:smaller" id="comment-amnt"><b>{{comment_amount}}</b></span>
+        </div>
+    </div>
+</div>

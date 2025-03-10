@@ -1,0 +1,253 @@
+{{#if @root.logged_in}}
+        {{#if parent_comment_id}}
+                <div class="all-comment">
+                <div class="row comment" id="comment" style="margin-left: 20px"> 
+
+                    <!-- Votes -->
+                    <div class="col-1 com-votes-cont" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <input type="hidden" value="{{_id}}" name="this_comment_id" id="this_comment_id"> 
+                            {{#checkUp upvotes @root.session_user}}
+                            <div><i class="comment_id fa-solid fa-circle-up comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                            {{else}}
+                            <div><i class="comment_id fa-regular fa-circle-up comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                            {{/checkUp}}
+                        <div class="comment-vote-cont"><span class="com-prop-amnt">{{votes}}</span></div>
+                        {{#checkDown downvotes @root.session_user}}
+                                <div><i class="comment_id fa-solid fa-circle-down comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                        {{else}}
+                                <div><i class="comment_id fa-regular fa-circle-down comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                        {{/checkDown}}
+                    </div>
+                    <div class="col-11">
+                        <!-- Username and Date Commented -->
+                        <div class="row">
+                            <div class="col-1">
+                                
+                                <img src="{{username.profile_pic}}" class="comment-profile-pic">
+                            </div>
+                            <div class="col-11">
+                                <div class="row">
+                                    <div class="col-11">
+                                
+                                    <div class="comment-username"><a id="username_comment" href="/user/{{username.username}}">{{username.username}}</a></div>
+
+                                <div class="comment-username">{{formatDate comment_date}}</div>
+                        <input type="hidden" value="{{_id}}" id="comment_id">
+
+                                
+                                    </div>
+
+                                
+                    <div class="col-1">
+                                    {{#if is_edited}}
+                                    <!-- Indicate if post is edited -->
+                                    <p class="edited-tag-post" id="edited-tag-post" style="margin-left: -40px;">(edited)</p>
+                                    {{/if}}
+                                    {{#checkUserOwner username.username @root.session_user}}
+                                    {{> users-comment}}
+                                    {{/checkUserOwner}}
+                    </div>
+                </div>           
+            </div>
+        </div>
+                        
+                        <!-- Comment contents -->
+                        <div class="comment-content"> {{this.comment_content}}               </div>
+                        <span class="comment-reply" onclick="onClickRep(event)">reply</span>
+                    </div>
+                            
+                            {{#each replies}}
+                                {{#thereExists ../_id parent_comment_id}}
+                                {{> comments this}}
+                                {{/thereExists}}
+                            {{/each}}
+                </div>
+            </div>
+        {{else}}
+            <!-- Comment portion -->
+            <div class="all-comment">
+                <div class="row comment" id="comment">
+                    <!-- Votes -->
+                    <div class="col-1 com-votes-cont" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <input type="hidden" value="{{_id}}" name="this_comment_id" id="this_comment_id"> 
+                        {{#checkUp upvotes @root.session_user}}
+                            <div><i class="comment_id fa-solid fa-circle-up comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                            {{else}}
+                            <div><i class="comment_id fa-regular fa-circle-up comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                            {{/checkUp}}
+                        <div class="comment-vote-cont"><span class="com-prop-amnt">{{votes}}</span></div>
+                        {{#checkDown downvotes @root.session_user}}
+                                <div><i class="comment_id fa-solid fa-circle-down comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                        {{else}}
+                                <div><i class="comment_id fa-regular fa-circle-down comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                        {{/checkDown}}
+                    
+                    </div>
+                    <div class="col-11">
+                        <!-- Username and Date Commented -->
+                        <div class="row">
+                            <div class="col-1">
+                                
+                                <img src="{{username.profile_pic}}" class="comment-profile-pic">
+                            </div>
+                            <div class="col-11">
+                                <div class="row">
+                                    <div class="col-11">
+                                
+                                    <div class="comment-username"><a id="username_comment" href="/user/{{username.username}}">{{username.username}}</a></div>
+                                    <input type="hidden" value="{{_id}}" id="comment_id">
+
+                                <div class="comment-username">{{formatDate comment_date}}</div>
+                                
+                                    </div>
+                                    <div class="col-1">
+                                        {{#if is_edited}}
+                                    <!-- Indicate if post is edited -->
+                                    <p class="edited-tag-post" id="edited-tag-post" style="margin-left: -40px;">(edited)</p>
+                                    {{/if}}
+                                    <!-- put comment helper that checks if username is this -->
+                                {{#checkUserOwner username.username @root.session_user}}
+                                    {{> users-comment}}
+                                    {{/checkUserOwner}}
+                                    </div>
+                                </div>
+
+
+                    
+                            </div>
+                        </div>
+                        
+                        <!-- Comment contents -->
+                        <div class="comment-content"> {{this.comment_content}} </div>
+                        <span class="comment-reply" onclick="onClickRep(event)">reply</span>
+                    </div>
+                        
+                        
+                            {{#each replies}}
+                                {{#thereExists ../_id parent_comment_id}}
+                                {{> comments this}}
+                                {{/thereExists}}
+                            {{/each}}
+                </div>
+            </div>
+
+            {{/if}}
+{{else}}
+     {{#if parent_comment_id}}
+                <div class="all-comment">
+                <div class="row comment" id="comment" style="margin-left: 20px"> 
+
+                    <!-- Votes -->
+                    <div class="col-1 com-votes-cont" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <input type="hidden" value="{{_id}}" name="this_comment_id" id="this_comment_id"> 
+                            <div><i class="comment_id fa-regular fa-circle-up comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                        <div class="comment-vote-cont"><span class="com-prop-amnt">{{votes}}</span></div>
+                                <div><i class="comment_id fa-regular fa-circle-down comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                    </div>
+                    <div class="col-11">
+                        <!-- Username and Date Commented -->
+                        <div class="row">
+                            <div class="col-1">
+                                
+                                <img src="{{username.profile_pic}}" class="comment-profile-pic">
+                            </div>
+                            <div class="col-11">
+                                <div class="row">
+                                    <div class="col-11">
+                                
+                                    <div class="comment-username"><a id="username_comment" href="/user/{{username.username}}">{{username.username}}</a></div>
+
+                                <div class="comment-username">{{formatDate comment_date}}</div>
+                        <input type="hidden" value="{{_id}}" id="comment_id">
+
+                                
+                                    </div>
+
+                                
+                    <div class="col-1">
+                                    {{#if is_edited}}
+                                    <!-- Indicate if post is edited -->
+                                    <p class="edited-tag-post" id="edited-tag-post" style="margin-left: -40px;">(edited)</p>
+                                    {{/if}}
+                                    {{#checkUserOwner username.username @root.session_user}}
+                                    {{> users-comment}}
+                                    {{/checkUserOwner}}
+                    </div>
+                </div>           
+            </div>
+        </div>
+                        
+                        <!-- Comment contents -->
+                        <div class="comment-content"> {{this.comment_content}}               </div>
+                        <span class="comment-reply" data-bs-toggle="modal" data-bs-target="#loginModal">reply</span>
+                    </div>
+                            
+                            {{#each replies}}
+                                {{#thereExists ../_id parent_comment_id}}
+                                {{> comments this}}
+                                {{/thereExists}}
+                            {{/each}}
+                </div>
+            </div>
+        {{else}}
+            <!-- Comment portion -->
+            <div class="all-comment">
+                <div class="row comment" id="comment">
+                    <!-- Votes -->
+                    <div class="col-1 com-votes-cont" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <div><i class="comment_id fa-regular fa-circle-up comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+                        <div class="comment-vote-cont"><span class="com-prop-amnt">{{votes}}</span></div>
+                                <div><i class="comment_id fa-regular fa-circle-down comment-proper-votes" style="color: #292F33; font-size: x-large"></i></div>
+           
+                    
+                    </div>
+                    <div class="col-11">
+                        <!-- Username and Date Commented -->
+                        <div class="row">
+                            <div class="col-1">
+                                
+                                <img src="{{username.profile_pic}}" class="comment-profile-pic">
+                            </div>
+                            <div class="col-11">
+                                <div class="row">
+                                    <div class="col-11">
+                                
+                                    <div class="comment-username"><a id="username_comment" href="/user/{{username.username}}">{{username.username}}</a></div>
+                                    <input type="hidden" value="{{_id}}" id="comment_id">
+
+                                <div class="comment-username">{{formatDate comment_date}}</div>
+                                
+                                    </div>
+                                    <div class="col-1">
+                                        {{#if is_edited}}
+                                    <!-- Indicate if post is edited -->
+                                    <p class="edited-tag-post" id="edited-tag-post" style="margin-left: -40px;">(edited)</p>
+                                    {{/if}}
+                                    <!-- put comment helper that checks if username is this -->
+                                {{#checkUserOwner username.username @root.session_user}}
+                                    {{> users-comment}}
+                                    {{/checkUserOwner}}
+                                    </div>
+                                </div>
+
+
+                    
+                            </div>
+                        </div>
+                        
+                        <!-- Comment contents -->
+                        <div class="comment-content"> {{this.comment_content}} </div>
+                        <span class="comment-reply" data-bs-toggle="modal" data-bs-target="#loginModal">reply</span>
+                    </div>
+                        
+                        
+                            {{#each replies}}
+                                {{#thereExists ../_id parent_comment_id}}
+                                {{> comments this}}
+                                {{/thereExists}}
+                            {{/each}}
+                </div>
+            </div>
+
+            {{/if}}
+{{/if}}

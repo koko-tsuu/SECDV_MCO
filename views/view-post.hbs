@@ -1,0 +1,60 @@
+<!-- Content Body -->
+<div class="container mt-4 pt-3">
+<div class="container d-flex content-container mt-4">
+
+    
+    <!-- View Post Container -->
+    <div class="container viewed-post">
+        {{#if logged_in}}
+        {{> post is_user_post=is_user_post}}
+        {{else}}
+        {{> nlg-post }}
+        {{/if}}
+        <h3>Comments (<span id="comment-bar-amnt">{{comment_amount}}</span>)</h3>
+        
+        {{#if logged_in}}
+        <form id="comment-form">
+        <div class="row comment-textarea-holder">
+                <div class="col-11 d-flex justify-content-center">
+                        <input type="hidden" value="{{id}}" name="id">
+                        <textarea class="comment-textarea" id="comment-textarea" name="comment_textarea" contenteditable="true" placeholder="add text here" ></textarea>
+                </div>
+                <div class="col-1 d-flex comment-send" id="comment-send-btn">
+                        <i class="fa-solid fa-paper-plane" style="margin:auto"></i>
+                </div>
+        </div>
+        </form>
+        {{else}}
+        <form id="comment-form">
+        <div class="row comment-textarea-holder">
+                <div class="col-11 d-flex justify-content-center">
+                        <input type="hidden" value="" name="id">
+                        <textarea class="comment-textarea" id="comment-textarea" name="comment_textarea" contenteditable="true" placeholder="add text here" ></textarea>
+                </div>
+                <div class="col-1 d-flex comment-send" id="comment-send-btn" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="fa-solid fa-paper-plane" style="margin:auto"></i>
+                </div>
+        </div>
+        </form>
+        {{/if}}
+        <!-- Comment portion -->
+        <div class="comment-container">
+                 {{#if logged_in}}
+                  {{#each comment}}
+                   {{> comments this}}
+                   {{/each}}
+                 {{else}}
+                   {{#each comment}}
+                   {{> nlg-comments this}}
+                   {{/each}}
+                  {{/if}}
+        </div>
+    </div>
+    
+    {{#if logged_in}}
+    {{> side-container}}
+    {{else}}
+    {{> nlg-side-container}}
+    {{/if}}
+</div>
+        

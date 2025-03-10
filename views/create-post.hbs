@@ -1,0 +1,54 @@
+
+<div class="container d-flex content-container mt-4">
+<!-- All Posts Container -->
+<div class="post-creator">
+    <form id="create-post-form">
+    <div class="post-creator-delete" id="delete-post-btn"><i class="fa-regular fa-trash-can"></i></div>
+    <textarea class="post-creator-title" rows="1" placeholder="type your title here" name="post_title" id="post_title" required>{{post_title}}</textarea>
+    <p class="post-creator-posted-by">posted by {{post_username}} on <span name="date" id="date" value="{{post_date}}"></span></p>
+    
+    <!-- Creating a post with attachments -->
+    <div class="post-creator-content">
+        <!-- Text area -->
+        <textarea name="post_content" class="textarea post-creator-description" id="post_content" contenteditable="true" placeholder="Enter your description here" oninput="if(this.innerHTML.trim()==='<br>')this.innerHTML=''" style="height: 300px; max-height:300px; overflow-x: auto">{{post_content}}</textarea>
+        <!-- Icon to attach files in creating a post -->
+        <div class="post-creator-attach" style="height: 300px;">
+            <!-- File upload -->
+            <input type="file" id="file" name="post_attachment" style="display:none;" accept="image/*">
+            <!-- File upload label -->
+            <label for="file" class="fa-solid fa-paperclip"></label>
+            <input type="hidden" id="deleted_attachment" value="">
+           
+        </div>
+    </div>
+
+    <!-- Attachment Container -->
+    <div class="d-flex attachment-container" id="attachment-container">
+        {{#if post_attachment}}
+            <div class="post-attachment" id="post-attachment">
+                 {{post_attachment}}
+                 <div class="post-attachment-delete" id="post-attachment-delete">
+                    <i class="fa-regular fa-trash-can"></i>
+                 </div>
+            </div>
+        {{/if}}
+    </div>
+     <input type="hidden" value="post-act" name="action" id="action">
+    <input type="hidden" value="{{id}}" name="post_id" id="post_id">
+    <div id="add-tag-area" class="post-creator-add-tag" contenteditable="true" placeholder="#add your tags here" oninput="if(this.innerHTML.trim()==='<br>')this.innerHTML=''"></div>
+    
+    <div class="d-flex" id="tag-grp" name="tag_groups">
+        {{#each tags}}
+        {{> tag-added this}}
+       {{/each}}
+    </div>
+    
+    <div class="post-creator-buttons mt-3">
+        <a href="/home">
+            <button class="pill post-creator-cancel" type="button">cancel</button>
+        </a>
+            <button class="pill post-creator-post" type="submit" id="{{button_type}}">post</button>
+    </div>
+    </form>
+</div>
+{{> side-container}}

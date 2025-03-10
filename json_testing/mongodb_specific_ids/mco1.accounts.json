@@ -1,0 +1,156 @@
+[{
+  "_id": {
+    "$oid": "64b7e12123b197fa3cd7539a"
+  },
+  "username": "sansfangirlxoxo",
+  "email": "smanssssss@mail.com",
+  "password": "undertalesans123",
+  "profile_pic": "img/sansfangirlxoxo.png",
+  "profile_desc": "sans is my senpai desu :3",
+  "subscribed_tags": [{
+    "$oid": "64b7dff723b197fa3cd75377"
+  },
+  {
+    "$oid": "64b7dff723b197fa3cd7538d"
+  }],
+  "upvotes": [{
+    "$oid": "64ba7e036e63a83b851bdf09"
+  }]
+},
+{
+  "_id": {
+    "$oid": "64b7e12123b197fa3cd7539b"
+  },
+  "username": "helpvirus",
+  "email": "tempmail@gmail.com",
+  "password": "password12345",
+  "profile_pic": "img/profile.png",
+  "profile_desc": "i'm a great placeholder, just like how i am easily replaced",
+  "subscribed_tags": [{
+    "$oid": "64b7dff723b197fa3cd75374"
+  },
+  {
+    "$oid": "64b7dff723b197fa3cd7538f"
+  },
+  {
+    "$oid": "64bcec56e1d38fe2365cd637"
+  }],
+  "upvotes": [{
+    "$oid": "64ba866d6e63a83b851bdf14"
+  }],
+  "downvotes":[{
+    "$oid": "64ba866d6e63a83b851bdf15"
+  }]
+},
+{
+  "_id": {
+    "$oid": "64b7e12123b197fa3cd7539c"
+  },
+  "username": "SherlockHolmes",
+  "email": "logicalities@email.com",
+  "password": "221BBakerStreet",
+  "profile_pic": "img/sherlockholmes.png",
+  "subscribed_tags": [{
+    "$oid": "64b7dff723b197fa3cd75390"
+  },
+  {
+    "$oid": "64b7dff723b197fa3cd75391"
+  },
+  {
+    "$oid": "64b7dff723b197fa3cd75381"
+  }],
+  "upvotes": [{
+    "$oid": "64ba866d6e63a83b851bdf14"
+  }],
+  "downvotes": [{
+    "$oid": "64b7e12123b197fa3cd7539c"
+  },
+  {
+    "$oid": "64ba866d6e63a83b851bdf15"
+  }]
+},
+{
+  "_id": {
+    "$oid": "64b7e12123b197fa3cd7539d"
+  },
+  "username": "RedQueen",
+  "email": "thequeen@email.com",
+  "password": "OffWithTheirHeads!!",
+  "profile_pic": "img/redqueen.png",
+  "profile_desc": "The truth is what I make it. I could set this world on fire and call it rain.",
+  "subscribed_tags": {
+    "$oid": "64b7dff723b197fa3cd75390"
+  },
+  "upvotes": [{
+    "$oid": "64ba866d6e63a83b851bdf15"
+  },
+  {
+    "$oid": "64ba866d6e63a83b851bdf13"
+  }],
+  "downvotes": [{
+    "$oid": "64ba866d6e63a83b851bdf16"
+  }, {
+    "$oid": "64ba866d6e63a83b851bdf14"
+  }]
+},
+{
+  "_id": {
+    "$oid": "64b7e12123b197fa3cd7539e"
+  },
+  "username": "DeezNuts",
+  "email": "hahagotu@mail.com",
+  "password": "thenutbutton!!",
+  "profile_pic": "img/deeznuts.jpg",
+  "profile_desc": "these nuts are pretty good",
+  "subscribed_tags": [{
+    "$oid": "64b7dff723b197fa3cd75394"
+  },
+  {
+    "$oid": "64b7dff723b197fa3cd75395"
+  },
+  {
+    "$oid": "64b7dff723b197fa3cd75396"
+  }],
+  "upvotes": [{
+    "$oid": "64ba866d6e63a83b851bdf13"
+  },
+  {
+    "$oid": "64ba866d6e63a83b851bdf14"
+  },
+  {
+    "$oid": "64ba866d6e63a83b851bdf16"
+  }],
+  "downvotes": [{
+    "$oid": "64ba866d6e63a83b851bdf15"
+  },
+  {
+    "$oid": "64ba866d6e63a83b851bdf16"
+  }]
+},
+{
+  "_id": {
+    "$oid": "64b7e12123b197fa3cd7539f"
+  },
+  "username": "coolbeans",
+  "email": "cooliobeans@mail.com",
+  "password": "*MC_StoryModeRIP*",
+  "profile_pic": "img/coolbeans.png",
+  "profile_desc": "lukas is precious",
+  "subscribed_tags": [{
+    "$oid": "64b7dff723b197fa3cd7538c"
+  },
+  {
+    "$oid": "64b7dff723b197fa3cd75397"
+  },
+  {
+    "$oid": "64b7dff723b197fa3cd7538f"
+  }],
+  "upvotes": [{
+    "$oid": "64ba866d6e63a83b851bdf14"},
+  {
+    "$oid": "64ba866d6e63a83b851bdf16"
+  }],
+  "downvotes": [{
+    "$oid": "64ba866d6e63a83b851bdf15"
+  }]
+}]

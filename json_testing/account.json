@@ -1,0 +1,43 @@
+[
+    {
+        "username": "sansfangirlxoxo",
+        "email": "smanssssss@mail.com",
+        "password": "undertalesans123",
+        "profile_pic": "img/sansfangirlxoxo.png",
+        "profile_desc": "sans is my senpai desu :3"
+    },
+    {
+        "username": "helpvirus",
+        "email": "tempmail@gmail.com",
+        "password": "password12345",
+        "profile_pic": "img/profile.png",
+        "profile_desc": "i'm a great placeholder, just like how i am easily replaced"
+    },
+    {
+        "username": "SherlockHolmes",
+        "email": "logicalities@email.com",
+        "password": "221BBakerStreet",
+        "profile_pic": "img/sherlockholmes.png"
+    },
+    {
+        "username": "RedQueen",
+        "email": "thequeen@email.com",
+        "password": "OffWithTheirHeads!!",
+        "profile_pic": "img/redqueen.png",
+        "profile_desc": "The truth is what I make it. I could set this world on fire and call it rain."
+    },
+    {
+        "username": "DeezNuts",
+        "email": "hahagotu@mail.com",
+        "password": "thenutbutton!!",
+        "profile_pic": "img/deeznuts.jpg",
+        "profile_desc": "these nuts are pretty good"
+    },
+    {
+        "username": "coolbeans",
+        "email": "cooliobeans@mail.com",
+        "password": "*MC_StoryModeRIP*",
+        "profile_pic": "img/coolbeans.png",
+        "profile_desc": "lukas is precious"
+    }
+]

@@ -1,0 +1,25 @@
+
+<div class="container d-flex content-container mt-4">
+<!-- All Posts Container -->
+<div class="post-creator">
+    <h3>{{post_title}}</h3>
+    <form id="edit-comment-form" method="post">
+    <p class="post-creator-posted-by">posted by <a href="/user/{{username}}">{{username}}</a> on <span name="date" id="date" value="{{comment_date}}"></span></p>
+    
+    <!-- Creating a post with attachments -->
+    <div class="post-creator-content">
+        <!-- Text area -->
+        <textarea name="comment_content" class="textarea post-creator-description" id="comment_content" contenteditable="true" placeholder="Enter your description here" oninput="if(this.innerHTML.trim()==='<br>')this.innerHTML=''" style="height: 300px; max-height:300px; overflow-x: auto">{{comment_content}}</textarea>
+
+    </div>
+    <input type="hidden" value="{{id}}" name="comment_id" id="comment_id">
+    
+    <div class="post-creator-buttons mt-3">
+        <a href="/post/{{post_id}}">
+            <button class="pill post-creator-cancel" type="button">cancel</button>
+        </a>
+            <button class="pill post-creator-post" type="submit" id="edit-comment-btn">save</button>
+    </div>
+    </form>
+</div>
+{{> side-container}}

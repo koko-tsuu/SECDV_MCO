@@ -1,0 +1,81 @@
+<!-- Content Body -->
+      <div class="container mt-4 pt-3">
+        <div class="container d-flex content-container mt-4">
+
+            <!-- Search Results Container -->
+            <div class="container flex-grow-1">
+                <nav>
+                    <div class="nav nav-tabs d-flex justify-content-center search-results-navbar" id="nav-search-tab" role="tablist">
+                        <button class="nav-link active profile-btn" id="nav-search-posts-tab" data-bs-toggle="tab" data-bs-target="#nav-search-posts" type="button" role="tab" aria-controls="nav-posts" aria-selected="true">
+                            posts
+                            <div class="profile-line"></div>
+                        </button>                          
+                          <button class="nav-link profile-btn" id="nav-search-tags-tab" data-bs-toggle="tab" data-bs-target="#nav-search-tags" type="button" role="tab" aria-controls="nav-comments" aria-selected="false">
+                            tags
+                            <div class="profile-line"></div>
+                        </button>    
+                        <button class="nav-link profile-btn" id="nav-search-accounts-tab" data-bs-toggle="tab" data-bs-target="#nav-search-accounts" type="button" role="tab" aria-controls="nav-comments" aria-selected="false">
+                            accounts
+                            <div class="profile-line"></div>
+                        </button>                 
+                    </div>
+                </nav>
+
+            <div class="tab-content search-tab-content" id="nav-search-tab-content">
+                <div class="tab-pane fade show active" id="nav-search-posts" role="tabpanel" aria-labelledby="nav-search-posts-tab-pane">
+                
+                        {{#if searched_post.length}}
+                            {{#each searched_post}}
+                            {{> post_preview}}
+                            {{/each}}
+                        {{else}}
+                            
+                                <div class="text-center">
+                                        <h5><b>It's empty...</b></h5>
+                                        <p>Try searching for something else.</p>
+                                </div>
+                        
+                        {{/if}}
+    
+                    </div>
+               
+
+                <div class="tab-pane fade" id="nav-search-tags" role="tabpanel"aria-labelledby="nav-search-tags-tab-pane">
+                    <!-- Tags Container -->
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                                       
+                            {{#each searched_tags}}
+                            <!-- change placeholders in partial -->
+                             {{> search-result-tags this}}
+                              {{else}}
+                            <!-- change to <no results> -->
+                                        {{> user-pane-empty this}}
+                            {{/each}}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="nav-search-accounts" role="tabpanel"aria-labelledby="nav-search-accounts-tab-pane">
+                    <!-- Accounts Container -->
+                    <div class="container">
+                        
+                        <div class="row" style="display: flex; justify-content: center;">
+                            {{#each searched_accounts}}
+                                        {{> search-result-accounts this}}
+                            {{else}}
+                            <!-- change to <no results> -->
+                                        {{> user-pane-empty this}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+ </div>
+            </div>
+                
+
+
+            </div>
+        
+        </div>

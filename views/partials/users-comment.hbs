@@ -1,0 +1,11 @@
+ <div class="comment-extras">
+                    <!-- <span class="edited" title="This post has been edited.">edited</span> -->
+                    <button class="comment-options dropdown" id="comment-options-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-ellipsis fa-l p-2"></i>
+                    </button>
+                    <div class="comment-options-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/post/editc-{{_id}}" id="edit-comment">Edit comment</a>
+                        <input type="hidden" value="{{_id}}" id="comment_id">
+                        <button class="dropdown-item delete-comment-btn" id="delete-comment-btn">Delete comment</button>
+                    </div>
+                </div>

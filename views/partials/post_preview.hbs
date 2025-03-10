@@ -1,0 +1,61 @@
+<!-- Post Container -->
+<div class="row post"> 
+
+    <!-- Profile Picture -->
+    <div class="col-1">
+        <img src="{{username.profile_pic}}" class="profile-pic">
+    </div>
+
+    <!-- Post Proper -->
+    <div class="col-11">
+        <h5 class="post-title"><b><a href="post/{{_id}}">{{{post_title}}}</a></b></h5>
+        <span class="post-info">posted by <a href="user/{{{username.username}}}">{{{username.username}}}</a> on {{{formatDate post_date}}}</span>
+        <p class="post-content pt-2">{{{post_content}}}</p>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex tags-con">
+                {{#each tags}}
+                <a href="tag/{{this.tag_name}}" class="postcom-tags post-tags-cont">#{{this.tag_name}}</a>
+                {{/each}}
+            </div>
+            <div class="actions-cont d-flex">
+                <div class="share-cont" onclick="copyLink('https://discusso.onrender.com/post/{{_id}}');">
+                    <i class="fa-regular fa-share-from-square"></i>
+                </div>
+                {{#if @root.logged_in}}
+                <div class="votes-cont">
+                     <input type="hidden" value="{{_id}}" name="this_post_id" id="this_post_id"> 
+                     {{#checkUp upvotes @root.session_user}}
+                     <i class="upvote-btn fa-solid fa-circle-up"></i>
+                     {{else}}
+                    <i class="upvote-btn fa-regular fa-circle-up"></i>
+                    {{/checkUp}}
+                    <span style="font-size:smaller; margin-right: 0.5vh;" id="upvote-amnt"><b>{{{upvotes.length}}}</b></span>
+                    <span style="fontWeight:bold; font-size:smaller; margin-right: 0.5vh;"><b>|</b></span>
+                    {{#checkDown downvotes @root.session_user}}
+                     <i class="downvote-btn fa-solid fa-circle-down"></i>
+                    {{else}}
+                    <i class="downvote-btn fa-regular fa-circle-down"></i>
+                    {{/checkDown}}
+                    <span style="fontWeight:bold; font-size:smaller" id="downvote-amnt"><b>{{{downvotes.length}}}</b></span>
+                </div>
+                <div class="comments-cont" onclick="redirectToPage('/post/{{_id}}')">
+                 <i class="fa-regular fa-comment-dots"></i>
+                <span style="font-size:smaller"><b>{{comments.length}}</b></span>
+                </div>
+                {{else}}
+                <div class="votes-cont" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <i class="upvote-btn fa-regular fa-circle-up"></i>
+                    <span style="font-size:smaller; margin-right: 0.5vh;" id="upvote-amnt"><b>{{{upvotes.length}}}</b></span>
+                    <span style="fontWeight:bold; font-size:smaller; margin-right: 0.5vh;"><b>|</b></span>
+                    <i class="downvote-btn fa-regular fa-circle-down"></i>
+                    <span style="fontWeight:bold; font-size:smaller" id="downvote-amnt"><b>{{{downvotes.length}}}</b></span>
+                </div>
+                <div class="comments-cont" data-bs-toggle="modal" data-bs-target="#loginModal">
+                 <i class="fa-regular fa-comment-dots"></i>
+                <span style="font-size:smaller"><b>{{comments.length}}</b></span>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div> <!-- End of a post -->

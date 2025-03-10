@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon -->
+    <link rel ="icon" href="img/favicon.png">
+    <link rel ="apple-touch-icon" href="img/favicon.png">
+    
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Shrikhand&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <title>Discusso</title>
+</head>
+<body>
+
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid" style="padding-left: 50px; padding-right: 50px">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" alt="Discusso" width = "170">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse d-flex  justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><i class="nav-icons fa-solid fa-magnifying-glass" data-bs-toggle="modal" data-bs-target="#searchModal"></i></a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="view-tags.html"><i class="nav-icons fa-solid fa-hashtag"></i></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbar-logged-in" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="nav-icons fa-solid fa-circle-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end profile-dropdown" aria-labelledby="navbar-logged-in">
+                      <li><a class="dropdown-item profile-dd-item" href="profile.html"><i class="fa-solid fa-user" style="padding-right: 1vh;"></i>Profile</a></li>
+                      <li><a class="dropdown-item profile-dd-item" href="index.html?msg=logout" id="logout-btn"><i class="fa-solid fa-arrow-right-from-bracket" style="padding-right: 1vh;"></i>Logout</a></li>
+                    </ul>
+                  </li>
+              </ul>
+            </div>
+        </div>
+      </nav>
+
+     <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true" style="width: 100%;">
+        <div class="modal-dialog">
+            <div class="container">
+                <div class="modal-content search-modal">
+                    <div class="modal-body search-modal-body">
+                        <form>
+                            <div class="d-flex justify-content-between">
+                                <input class="search-input" type="text" name="text" aria-placeholder="Search..." placeholder="Search...">
+                                <button type="submit" class="search-confirm" formaction="search.html"><i class="nav-icons fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="width: 40vh;">
+            <div class="container">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="width: 75vh; font-size: 1.3rem"></button>
+                <div class="modal-content logreg-modal">
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                            <label for="email" class="col-form-label"><b>email</b></label>
+                            <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                            <div class="mb-3">
+                            <label for="message-text" class="col-form-label"><b>password</b></label>
+                            <input type="password" class="form-control" id="password" name="password">
+                            </div>
+                            <div class="d-flex align-items-center justify-content-start" style="margin-top: -1vh">
+                                <input type="checkbox" value="rememberMe" id="rememberMe" name="rememberMe"> <p style="font-size: smaller; margin-left: 0.4vh !important" class="pt-3"><b>remember me</b></p>
+                            </div>
+                            <p style="margin-top: -1vh;"><span class="reg-mod">don't have an account yet?</span> <a class="form-btn reg-btn" data-bs-toggle="modal" data-bs-target="#regModal" data-bs-dismiss="modal">register</a>.</p>
+                        </form>
+                    </div>
+                        <button type="button" class="btn btn-loginreg" style="margin-right: 2vh; margin-left: 2vh; margin-top: -1vh;">login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="regModal" tabindex="-1" aria-labelledby="regModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="width: 40vh;">
+            <div class="container">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="width: 75vh; font-size: 1.3rem; opacity: 1;"></button>
+                <div class="modal-content logreg-modal">
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                            <label for="email" class="col-form-label"><b>email</b></label>
+                            <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                            <div class="mb-3">
+                            <label for="password" class="col-form-label"><b>password</b></label>
+                            <input type="password" class="form-control" id="password" name="password">
+                            </div>
+                            <p><span class="reg-mod">already have an account?</span> <a class="form-btn reg-btn" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">login</a>.</p>
+                        </form>
+                    </div>
+                        <button type="button" class="btn btn-loginreg" style="margin-right: 2vh; margin-left: 2vh; margin-top: -1vh;">register</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+        
+    
+    <!-- Edit post page -->
+    <div class="container mt-4 pt-3">
+        <h1 class="header-text">Edit New Post</h1>
+        <div class="container d-flex content-container mt-4">
+            <!-- All Posts Container -->
+            <div class="post-creator">
+                <!-- Delete button -->
+                <div class="post-creator-delete">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#post-creator-confirm-delete">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+
+                <!-- Confirm Delete Post Modal -->
+                <div class="modal fade" id="post-creator-confirm-delete" tabindex="-1" aria-labelledby="post-creator-confirm-delete" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" style="width: 40vh;">
+                        
+                        <div class="container">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="width: 75vh; font-size: 1.3rem "></button>
+                            <div class="modal-content confirm-delete-modal">
+                                <div class="modal-body" style="font-weight: bold; font-size: 1.4em;">
+                                    Confirm deletion?
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn pill" data-bs-dismiss="modal" style="background-color: #dbdbdb;">cancel</button>
+                                    <a href="index.html"><button type="button" class="btn pill" style="background-color: #D4A373;">confirm</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <textarea class="post-creator-title" rows="1" placeholder="type your title here">help my computer is dying
+                </textarea>
+                <p class="post-creator-posted-by">posted by helpvirus on May 25, 2023</p>
+                <div class="textarea post-creator-description" contenteditable="true" placeholder="Enter your description here" oninput="if(this.innerHTML.trim()==='<br>')this.innerHTML=''">
+                    help i think i made a mistake, i downloaded this "free cool toolbar" extension and uploaded it 
+                    on google drive; and now my computer does not work anymore, please help what do i do
+                </div>
+                <div id="add-tag-area" class="post-creator-add-tag" contenteditable="true" placeholder="#add your tags here" oninput="if(this.innerHTML.trim()==='<br>')this.innerHTML=''"></div>
+                <div class="d-flex" id="tag-grp">
+                    <div class="post-tags-cont-r mt-2 added-tag"><i class="fa-solid fa-xmark postcom-tags" style="margin-right: 5px;"></i><span contenteditable="true">virus</span></div>
+                    <div class="post-tags-cont-r mt-2 added-tag"><i class="fa-solid fa-xmark postcom-tags" style="margin-right: 5px;"></i><span contenteditable="true">ohgosh</span></div>
+                    <div class="post-tags-cont-r mt-2 added-tag"><i class="fa-solid fa-xmark postcom-tags" style="margin-right: 5px;"></i><span contenteditable="true">aaa</span></div>
+                </div>
+                <div class="post-creator-buttons mt-3">
+                    <a href="index.html">
+                        <button class="pill post-creator-cancel">cancel</button>
+                    </a>
+                    <a href="index.html">
+                        <button class="pill post-creator-post">post</button>
+                    </a>
+                </div>
+            </div>
+            
+
+
+            <div class="container-sm">
+
+               <!-- Popular Tags -->
+               <div class="container side-cont pt-4">
+                <a href="view-tags.html" class="side-text"><h5 class="side-txt">popular tags</h5></a>
+                <div class="line"></div>
+
+                <div class="container d-flex mt-2 justify-content-between">
+                    <a href="tag.html" class="pop-tag" style="text-decoration: none;"><h6 class="pop-tag">#sans (2000)</h6></a>
+                    <i class="fa-solid fa-circle-plus add-tag"></i>
+                </div>
+
+                <div class="container d-flex mt-2 justify-content-between">
+                    <a href="tag.html" class="pop-tag" style="text-decoration: none;"><h6 class="pop-tag">#news (1042)</h6></a>
+                    <i class="fa-solid fa-circle-plus add-tag"></i>
+                </div>
+
+                <div class="container d-flex mt-2 justify-content-between">
+                    <a href="tag.html" class="pop-tag" style="text-decoration: none;"><h6 class="pop-tag">#gaming (510)</h6></a>
+                    <i class="fa-solid fa-circle-plus add-tag"></i>
+                </div>
+
+                <div class="container d-flex mt-2 justify-content-between">
+                    <a href="tag.html" class="pop-tag" style="text-decoration: none;"><h6 class="pop-tag">#hash (420)</h6></a>
+                    <i class="fa-solid fa-circle-plus add-tag"></i>
+                </div>
+
+                <div class="container d-flex mt-2 justify-content-between">
+                    <a href="tag.html" class="pop-tag" style="text-decoration: none;"><h6 class="pop-tag">#wow (312)</h6></a>
+                    <i class="fa-solid fa-circle-plus add-tag"></i>
+                </div>
+
+                <div class="container d-flex mt-2 justify-content-between">
+                    <a href="tag.html" class="pop-tag" style="text-decoration: none;"><h6 class="pop-tag">#corruption (231)</h6></a>
+                    <i class="fa-solid fa-circle-plus add-tag"></i>
+                </div>
+
+            </div>
+        
+                <!-- Latest Posts -->
+                <div class="container side-cont mt-4 pt-4">
+                    <h5 class="side-text">latest posts</h5>
+                    <div class="line"></div>
+        
+                    <div class="row d-flex mt-2 justify-content-between">
+                            <div class="col-2">
+                                <img src="img/profile-pic.png" class="profile-pic">
+                            </div>
+                            <div class="col-10">
+                                <p class="side-post-title"><b>i don't know how to use this canva</b></p>
+                                <span class="side-post-info">posted by helpvirus on May 25, 2023</span>
+                            </div>
+                    </div>
+                    
+                    <div class="side-line mt-3"></div>
+        
+                    <div class="row d-flex mt-2 justify-content-between">
+                        <div class="col-2">
+                            <img src="img/profile-pic.png" class="profile-pic">
+                        </div>
+                        <div class="col-10">
+                            <p class="side-post-title"><b>i don't know how to use this canva</b></p>
+                            <span class="side-post-info">posted by helpvirus on May 25, 2023</span>
+                        </div>
+                </div>
+                
+                <div class="side-line mt-3"></div>
+        
+                <div class="row d-flex mt-2 justify-content-between">
+                    <div class="col-2">
+                        <img src="img/profile-pic.png" class="profile-pic">
+                    </div>
+                    <div class="col-10">
+                        <p class="side-post-title"><b>i don't know how to use this canva</b></p>
+                        <span class="side-post-info">posted by helpvirus on May 25, 2023</span>
+                    </div>
+                </div>
+                
+                <div class="side-line mt-3"></div>
+                
+                <div class="row d-flex mt-2 justify-content-between">
+                    <div class="col-2">
+                        <img src="img/profile-pic.png" class="profile-pic">
+                    </div>
+                    <div class="col-10">
+                        <p class="side-post-title"><b>i don't know how to use this canva</b></p>
+                        <span class="side-post-info">posted by helpvirus on May 25, 2023</span>
+                    </div>
+                </div>
+        
+                <div class="side-line mt-3"></div>
+                
+                <div class="row d-flex mt-2 justify-content-between">
+                    <div class="col-2">
+                        <img src="img/profile-pic.png" class="profile-pic">
+                    </div>
+                    <div class="col-10">
+                        <p class="side-post-title"><b>i don't know how to use this canva</b></p>
+                        <span class="side-post-info">posted by helpvirus on May 25, 2023</span>
+                        <p id="date" style="display: none;"></p>
+                    </div>
+                </div>
+                </div>
+        
+            </div>
+        </div>
+    
+    </div>
+
+    <!-- JQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!-- Fontawesome JS -->
+    <script src="https://kit.fontawesome.com/8fc6c81a17.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/staple.js"></script>
+    <script type="text/javascript" src="js/post.js"></script>
+
+</body>
+

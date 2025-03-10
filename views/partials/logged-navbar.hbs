@@ -1,0 +1,32 @@
+  <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid" style="padding-left: 50px; padding-right: 50px">
+            <a class="navbar-brand" href="/home">
+                <img src="img/logo.png" alt="Discusso" width = "170">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse d-flex  justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/about"><i class="nav-icons fa-solid fa-info-circle"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><i class="nav-icons fa-solid fa-magnifying-glass" data-bs-toggle="modal" data-bs-target="#searchModal"></i></a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/tag"><i class="nav-icons fa-solid fa-hashtag"></i></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbar-logged-in" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="nav-icons fa-solid fa-circle-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end profile-dropdown" aria-labelledby="navbar-logged-in">
+                      <li><a class="dropdown-item profile-dd-item" href="/user/{{{lookup . 'session_user'}}}"><i class="fa-solid fa-user" style="padding-right: 1vh;"></i>Profile</a></li>
+                      <li><a class="dropdown-item profile-dd-item" id="logout-btn"><i class="fa-solid fa-arrow-right-from-bracket" style="padding-right: 1vh;"></i>Logout</a></li>
+                    </ul>
+                  </li>
+              </ul>
+            </div>
+        </div>
+      </nav>

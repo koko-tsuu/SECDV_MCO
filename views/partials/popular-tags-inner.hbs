@@ -1,0 +1,11 @@
+ <div class="container d-flex mt-2 justify-content-between popular-taglist">
+
+        <a href="/tag/{{this.tag_name}}" class="pop-tag" style="text-decoration: none;"><h6 class="pop-tag">{{this.tag_name}} ({{count}})</h6></a>
+        <input type="hidden" class="tag_pop_id" value="{{this.tag_name}}">
+          {{#if isSubscribed}}
+                <div class="tag-subscribe">Unsubscribe</div>
+                {{else}}
+                <div class="tag-subscribe">Subscribe</div>
+                {{/if}}
+        
+</div>

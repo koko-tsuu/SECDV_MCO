@@ -1,0 +1,26 @@
+<!-- Side Container -->
+    <div class="container-sm">
+        <!-- Popular Tags -->
+    <div class="container side-cont pt-4">
+        <a href="/tag" class="side-text"><h5 class="side-txt">popular tags</h5></a>
+        <div class="line"></div>
+        {{#each popular_tags}}
+            {{#if (isInSubscribedTags tag_id)}}
+             {{> popular-tags-inner isSubscribed=true}}
+            {{else}}
+                {{> popular-tags-inner isSubscribed=false}}
+            {{/if}}
+        {{/each}}
+    </div>
+
+        <!-- Latest Posts -->
+    <div class="container side-cont mt-4 pt-4">
+            <h5 class="side-text">latest posts</h5>
+            <div class="line"></div>
+        
+        {{#each posts_latest}}
+        {{> latest-posts-inner this}}
+        {{/each}}
+           
+    </div>
+</div>

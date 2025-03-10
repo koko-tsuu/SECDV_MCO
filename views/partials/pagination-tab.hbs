@@ -1,0 +1,21 @@
+<!-- Pagination -->
+<div class="pagination-tab">
+    {{#unless prev}}
+    <li class="page-item previous-page disable">
+        <a class="page-link">Prev</a>
+    </li>
+    {{else}}
+    <li class="page-item previous-page">
+        <a class="page-link" href="?page={{prev}}">Prev</a>
+    </li>
+    {{/unless}}
+    {{#unless next}}
+    <li class="page-item next-page disable">
+        <a class="page-link">Next</a>
+    </li>
+    {{else}}
+    <li class="page-item next-page active">
+        <a class="page-link" href="?page={{next}}">Next</a>
+    </li>
+    {{/unless}}
+</div> 

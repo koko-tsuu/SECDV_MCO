@@ -1,0 +1,18 @@
+
+<div class="container d-flex content-container mt-4">
+    <!-- All Posts Container -->
+    <div class="container flex-grow-1 posts">
+        {{#each posts}}
+        {{> post_preview this}}
+        {{/each}}
+
+        <!-- Pagination -->
+        {{> pagination-tab}}
+    </div> <!-- End of post container -->
+    
+    {{#if logged_in}}
+    {{> side-container}}
+    {{else}}
+    {{> nlg-side-container}}
+    {{/if}}
+</div>

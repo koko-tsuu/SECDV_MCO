@@ -1,0 +1,56 @@
+<div class="tag-post-prev p-0 mr-2 col-md-3">
+    <!-- left bar that cointains upvote, downvote, comment and share buttons -->
+    <div class="tag-post-left-bar">
+        <!-- Votes -->
+        <div class="left-bar-header"> 
+             <input type="hidden" value="{{_id}}" name="post_id" id="post_id">
+            {{#if upvoted}}
+            <i class="fa fa-solid fa-circle-up upvote-btn" id="upvote-btn"></i>
+            {{else}}
+            <i class="fa fa-regular fa-circle-up upvote-btn" id="upvote-btn"></i>
+            {{/if}}
+            <span style="font-Weight:bold; font-size:smaller; margin-right: 5vh;" id="vote-ctr" class="vote-amnt">{{net_vote_count}}</span>
+            {{#if downvoted}}
+            <i class="fa fa-solid fa-circle-down downvote-btn" id="downvote-btn"></i>
+            {{else}}
+            <i class="fa fa-regular fa-circle-down downvote-btn" id="downvote-btn"></i>
+            {{/if}}
+        </div>
+
+        <!-- Share -->
+        <div class="left-bar-footer">
+            <i class="fa fa-regular fa-share-from-square" onclick="copyLink('https://discusso.onrender.com/post/{{_id}}')"></i>
+        </div>
+    </div>
+
+    <!-- right bar that contains the main post -->
+    <div class="tag-post-right-bar">
+        
+        <!-- header of the tag-post that cointains the profile pic, title post, and title info -->
+        <div class="right-bar-header">
+            <div class="tag-profile">
+                <img src="{{username.profile_pic}}" class="profile-pic">
+            </div>
+            <a href="/post/{{_id}}"><h7 class="tag-title"><b>{{{post_title}}}</b></h7></a> 
+        </div>
+        <span class="post-info">posted by <a href="../user/{{{username.username}}}">{{{username.username}}}</a> on {{{formatDate post_date}}}</span>
+        
+        <!-- body of the tag post that contains the post itself --->
+        <div class="right-bar-body">
+            <p class="tag-post-content">{{{post_content}}}</p>
+            
+            <!--TO DO: insert the html file for this post -->
+            <p class="tag-post-continue"> <a href="/post/{{_id}}">Read more...</a></p>
+        </div>
+
+        <!-- footer of the tag that contains the taglist -->
+        <div class="right-bar-footer">
+            <div class="d-flex">
+                {{#each tags}}
+                <a href="/tag/{{tag_name}}" class="postcom-tags post-tags-cont">#{{tag_name}}</a>
+                {{/each}}
+                <a href="/post/{{_id}}" class="postcom-tags post-tags-cont">...</a>
+            </div>
+        </div>
+    </div>
+</div> 
