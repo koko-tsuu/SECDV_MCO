@@ -77,27 +77,6 @@ $("#email-reg").on('keyup', async function (){
     }
 });
 
-$("#login-btn").on('click', async function (){
-    const getEmail = $("#email-log").val();
-    const response = await fetch ('/isEmail?email=' + getEmail, {
-        method: 'GET'
-    });
-    
-    switch (response.status){
-        case 400: 
-            $("#email-login-msg").css('display','block');
-            $('#email-login-msg').addClass('alert-danger');
-            $("#email-login-msg").text('Email does not belong to any account');
-            break;
-        case 422: 
-            $("#email-login-msg").css('display','block');
-            $("#email-login-msg").addClass('alert-danger');
-            $("#email-login-msg").text('Invalid email.');
-            break;
-        case 200:
-            $("#email-msg").css('display','none');
-    }
-});
 
 $("#toggle-pass-log").click(function () {
     if($("#password-log").prop('type') == 'text'){
