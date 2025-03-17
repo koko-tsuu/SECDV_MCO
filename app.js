@@ -13,6 +13,7 @@ const connecttoDB = require('./server/config/db');
 
 app.use(
     session({
+      name: 'id',
       secret: process.env.SESSION_SECRET, // Replace with your own secret key
       resave: false,
       saveUninitialized: false,
